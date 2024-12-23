@@ -34,7 +34,7 @@ public class MajorityElement {
         for (Map.Entry<Integer, Integer> it : freq.entrySet()) {
             element = it.getKey();
             count=it.getValue();
-            if(count > arr.length/3){
+            if(count > arr.length/2){
                 res.add(element);
             }
         }

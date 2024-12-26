@@ -2,31 +2,34 @@ package com.dsa.string;
 
 public class AddTwoBinaryString {
     public static void main(String[] args) {
-        String s1="00101";
-        String s2 ="0";
-        if(s1.length()>s2.length()){
-            int l = s1.length()-s2.length();
+        String a ="0";
+        String b ="0";
+        /*if(a.equals("0") && b.equals("0")){
+            return "0";
+        }*/
+        if(a.length()> b.length()){
+            int l = a.length()- b.length();
             for (int i = 0; i < l; i++) {
-                s2="0"+s2;
+                b ="0"+ b;
             }
         }
-        if(s1.length()<s2.length()){
-            int l = s2.length()-s1.length();
+        if(a.length()< b.length()){
+            int l = b.length()- a.length();
             for (int i = 0; i < l; i++) {
-                s1="0"+s1;
+                a ="0"+ a;
             }
         }
         String result ="";
         char carryResult='0'; //10100
-        for (int i = s1.length()-1; i >= 0 ; i--) {
-            if(s1.charAt(i) == '1' && s2.charAt(i) == '1'){
+        for (int i = a.length()-1; i >= 0 ; i--) {
+            if(a.charAt(i) == '1' && b.charAt(i) == '1'){
                 if(carryResult == '1'){
                     result ="1"+result;
                 }else{
                     result ="0"+result;
                 }
                 carryResult='1';
-            }else if((s1.charAt(i) == '1' && s2.charAt(i) == '0') || (s1.charAt(i) == '0' && s2.charAt(i) == '1')){
+            }else if((a.charAt(i) == '1' && b.charAt(i) == '0') || (a.charAt(i) == '0' && b.charAt(i) == '1')){
                 if(carryResult == '1'){
                     result ="0"+result;
                     carryResult='1';
@@ -34,7 +37,7 @@ public class AddTwoBinaryString {
                     result ="1"+result;
                     carryResult='0';
                 }
-            }else if(s1.charAt(i) == '0' && s2.charAt(i) == '0'){
+            }else if(a.charAt(i) == '0' && b.charAt(i) == '0'){
                 if(carryResult == '1'){
                     result ="1"+result;
                     carryResult='0';
@@ -57,5 +60,6 @@ public class AddTwoBinaryString {
             }
         }
         System.out.println("result : "+result);
+
     }
 }
